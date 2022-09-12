@@ -27,6 +27,7 @@ namespace MyPt
             var button = sender as Button;
             if(LblResult.Text == "0" || isOpClicked)
             {
+                isOpClicked = false;//пампам
                 LblResult.Text = button.Text;
             }
             else
@@ -38,6 +39,9 @@ namespace MyPt
         private void BtnClear_Clicked(object sender, EventArgs e)
         {
             LblResult.Text = "0";
+            isOpClicked = false;//тарапамапам
+            firstNum = 0;//пам
+
         }
 
         private void BtnDel_Clicked(object sender, EventArgs e)
@@ -74,10 +78,10 @@ namespace MyPt
             }
             catch(Exception ex)
             {
-                DisplayAlert("Всё ... давай по новой", ex.Message, "Лады");
+                DisplayAlert("Всё ... давай по новой", ex.Message, "Лады");//в случае исключений выводит ошибку
             }
         }
-        public decimal Calculate (decimal firstNum,decimal secNum)
+        public decimal Calculate (decimal firstNum,decimal secNum)//сама функция вычисленния
         {
             decimal result =0;
             if(opName =="+")
